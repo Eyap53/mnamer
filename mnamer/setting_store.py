@@ -178,7 +178,7 @@ class SettingStore:
         )(),
     )
     movie_format: str = dataclasses.field(
-        default="{name} ({year}).{extension}",
+        default="{name} ({year}){extension}",
         metadata=SettingSpec(
             dest="movie_format",
             flags=["--movie_format", "--movie-format", "--movieformat"],
@@ -210,7 +210,7 @@ class SettingStore:
         )(),
     )
     episode_format: str = dataclasses.field(
-        default="{series} - S{season:02}E{episode:02} - {title}.{extension}",
+        default="{series} - S{season:02}E{episode:02} - {title}{extension}",
         metadata=SettingSpec(
             dest="episode_format",
             flags=["--episode_format", "--episode-format", "--episodeformat"],

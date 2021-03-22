@@ -158,7 +158,7 @@ def test_format_id(e2e_run, setup_test_files):
         "--batch",
         "--media=movie",
         "--movie-api=omdb",
-        "--movie-format='{name} ({id_imdb}).{extension}'",
+        "--movie-format='{name} ({id_imdb}){extension}'",
         ".",
     )
     assert result.code == 0
@@ -172,7 +172,7 @@ def test_format_id__tvdb(e2e_run, setup_test_files):
     result = e2e_run(
         "--batch",
         "--episode-api=tvdb",
-        "--episode-format='{id_tvdb}.{season}x{episode}.{extension}'",
+        "--episode-format='{id_tvdb}.{season}x{episode}{extension}'",
         ".",
     )
     assert result.code == 0
@@ -186,7 +186,7 @@ def test_format_season0(e2e_run, setup_test_files):
     result = e2e_run(
         "--batch",
         "--episode-api=tvdb",
-        "--episode-format='{series} {season:02}x{episode:02}.{extension}'",
+        "--episode-format='{series} {season:02}x{episode:02}{extension}'",
         ".",
     )
     assert result.code == 0
